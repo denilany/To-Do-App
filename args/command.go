@@ -1,6 +1,7 @@
-package main
+package args
 
 import (
+	"ToDo/todo"
 	"flag"
 	"fmt"
 	"os"
@@ -30,13 +31,13 @@ func NewCmdFlags() *CmdFlags {
 	return &cf
 }
 
-func (cf *CmdFlags) Execute(todos *Todos) {
+func (cf *CmdFlags) Execute(todos *todo.Todos) {
 	switch {
 	case cf.List:
-		todos.print()
+		todos.Print()
 
 	case cf.Add != "":
-		todos.add(cf.Add)
+		todos.Add(cf.Add)
 
 	case cf.Edit != "":
 		parts := strings.SplitN(cf.Edit, ":", 2)
@@ -51,13 +52,13 @@ func (cf *CmdFlags) Execute(todos *Todos) {
 			os.Exit(1)
 		}
 
-		todos.edit(index, parts[1])
+		todos.Edit(index, parts[1])
 
 	case cf.Toggle != -1:
-		todos.toggle(cf.Toggle)
-	
+		todos.Toggle(cf.Toggle)
+
 	case cf.Del != -1:
-		todos.delete(cf.Del)
+		todos.Delete(cf.Del)
 
 	default:
 		fmt.Println("Invalid command")
