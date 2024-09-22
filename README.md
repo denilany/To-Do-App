@@ -34,13 +34,13 @@ Here are the available commands and how to use them:
 ### Add a Task
 
 ```bash
-./todo --add "Task Title"
+./main --add "Task Title"
 ```
 
 ### Delete a Task
 
 ```bash
-./todo --del 2
+./main --del 2
 ```
 
 Where `2` is the index of the task you want to delete.
@@ -48,7 +48,7 @@ Where `2` is the index of the task you want to delete.
 ### Edit a Task
 
 ```bash
-./todo --edit "2:New Task Title"
+./main --edit "2:New Task Title"
 ```
 
 Where `2` is the index of the task you want to edit, followed by the new title.
@@ -56,7 +56,7 @@ Where `2` is the index of the task you want to edit, followed by the new title.
 ### Toggle Task Completion
 
 ```bash
-./todo --toggle 2
+./main --toggle 2
 ```
 
 Where `2` is the index of the task to toggle.
@@ -64,7 +64,7 @@ Where `2` is the index of the task to toggle.
 ### List All Tasks
 
 ```bash
-./todo --list
+./main --list
 ```
 
 This command will display all tasks, showing their index, title, completion status, and timestamps.
@@ -76,14 +76,16 @@ Tasks are stored in a file named `todos.json` in the same directory as the execu
 ## Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/denilany/To-Do-App.git
    cd To-Do-App
    ```
 
 2. Build the project:
+
    ```bash
-   go build -o todo
+   go build -o main
    ```
 
 3. Run the program with the desired flags.
@@ -92,6 +94,7 @@ Tasks are stored in a file named `todos.json` in the same directory as the execu
 
 - **Go**: Make sure you have Go installed on your system.
 - **Table Package**: For rendering the to-do list in a table format. Install it using:
+
   ```bash
   go get github.com/aquasecurity/table
   ```
